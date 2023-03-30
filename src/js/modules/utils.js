@@ -180,11 +180,8 @@ export const placeABid = async (isCollectionBid, web3, amount, collectionId, tok
             }
             const config = getEthereumConfig("mumbai");
             await convertCurrency(ethWallet, config, bidData)
-            // console.log('---bidData: ', bidData);
             const orderRequest = await getPreBidForm(bidData, !isCollectionBid ? { itemId: `ETHEREUM:${collectionId}:${tokenId}` } : { collectionId });
-            // console.log('---orderRequest: ', orderRequest)
             const orderForm = await getBidForm(ethWallet.ethereum, orderRequest)
-            // console.log('---orderForm: ', orderForm)
             const checked = await checkLazyOrder(orderForm);
             // console.log('---checked: ', checked);
             await approve(ethWallet.ethereum, config, "mumbai", checked, true)
