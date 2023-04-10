@@ -183,7 +183,6 @@ export const placeABid = async (isCollectionBid, web3, amount, collectionId, tok
             const orderRequest = await getPreBidForm(bidData, !isCollectionBid ? { itemId: `ETHEREUM:${collectionId}:${tokenId}` } : { collectionId });
             const orderForm = await getBidForm(ethWallet.ethereum, orderRequest)
             const checked = await checkLazyOrder(orderForm);
-            // console.log('---checked: ', checked);
             await approve(ethWallet.ethereum, config, "mumbai", checked, true)
             const simpleForm = await orderFormToSimpleOrder(checked);
             // console.log('---simpleForm: ', simpleForm)
@@ -195,7 +194,6 @@ export const placeABid = async (isCollectionBid, web3, amount, collectionId, tok
                 collectionId,
                 ...(!isCollectionBid && { tokenId })
             }
-            // console.log('---order: ', order);
             const reOrder = await upsertOrder({
                 order,
                 activity: {
