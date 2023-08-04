@@ -185,9 +185,7 @@ export const placeABid = async (isCollectionBid, web3, amount, collectionId, tok
             const checked = await checkLazyOrder(orderForm);
             await approve(ethWallet.ethereum, config, "mumbai", checked, true)
             const simpleForm = await orderFormToSimpleOrder(checked);
-            // console.log('---simpleForm: ', simpleForm)
             const signature = await signOrder(ethWallet.ethereum, config, simpleForm);
-            // console.log('---signature: ', signature)
             const order = {
                 ...checked,
                 signature,
