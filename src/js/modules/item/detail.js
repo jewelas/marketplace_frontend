@@ -12,7 +12,6 @@ import { EthereumWallet } from '@rarible/sdk-wallet'
 import { getEthereumConfig } from '../../config/'
 import { checkLazyOrder, depositToWeth } from '../../utils/common'
 import { getAndDeleteOrderByData, getOpenOrders, getOrderByHash, getOrdersByItemId, updateBidData, upsertOrder } from '../../apis/order'
-import { orderToStruct } from '@rarible/protocol-ethereum-sdk/build/order/sign-order'
 import { createExchangeV2Contract } from '@rarible/protocol-ethereum-sdk/build/order/contracts/exchange-v2'
 import Charts from "../../charts"
 
